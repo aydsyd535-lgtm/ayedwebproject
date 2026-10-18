@@ -1,0 +1,156 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:  Segoe UI , Tahoma, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 450px;
+}
+
+h1, h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+h1 { color: #4a6cf7; }
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    color: #555;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+input:focus, textarea:focus {
+    border-color: #4a6cf7;
+    outline: none;
+}
+
+button, .btn {
+    width: 100%;
+    padding: 12px;
+    background: #4a6cf7;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+button:hover, .btn:hover {
+    background: #3a5ce4;
+}
+
+.link {
+    text-align: center;
+    margin-top: 15px;
+    color: #666;
+}
+
+.link a {
+    color: #4a6cf7;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Navbar */
+.navbar {
+    background: #4a6cf7;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.navbar .logo {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* Dashboard */
+.dashboard {
+    text-align: center;
+}
+
+.dashboard h1 {
+    font-size: 34px;
+    color: #4a6cf7;
+    margin-bottom: 10px;
+}
+
+.dashboard .email {
+    color: #888;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+
+/* Alerts */
+.error {
+    background: #ffe0e0;
+    color: #d00;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.success {
+    background: #e0ffe0;
+    color: #080;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: center;
+}
