@@ -1,156 +1,41 @@
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family:  Segoe UI , Tahoma, sans-serif;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family:  Segoe UI , Tahoma, Geneva, Verdana, sans-serif; }
+body { background: #f0f2f5; color: #333; padding-bottom: 60px; }
 
-body {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+/* ====== الشريط العلوي ====== */
+header { background: #1a1a2e; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; color: white; box-shadow: 0 4px 12px rgba(0,0,0,0.15); position: sticky; top: 0; z-index: 1000; }
+header h1 { color: #e94560; font-size: 24px; }
+nav a { color: white; text-decoration: none; margin-right: 20px; font-weight: 600; font-size: 16px; cursor: pointer; transition: 0.3s; }
+nav a:hover { color: #e94560; }
 
-.container {
-    background: #fff;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    width: 100%;
-    max-width: 450px;
-}
+/* ====== الحاويات ====== */
+.container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+.hero { text-align: center; margin-bottom: 40px; }
+.hero h2 { font-size: 32px; color: #1a1a2e; margin-bottom: 10px; }
+.hero p { color: #666; font-size: 18px; }
 
-h1, h2 {
-    color: #333;
-    text-align: center;
-    margin-bottom: 25px;
-}
+/* ====== بطاقات السيارات ====== */
+.car-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+.car-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: 0.3s; }
+.car-card:hover { transform: translateY(-8px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+.car-img { height: 200px; width: 100%; overflow: hidden; }
+.car-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
+.car-card:hover .car-img img { transform: scale(1.05); }
+.car-info { padding: 20px; }
+.car-info h3 { color: #1a1a2e; font-size: 20px; margin-bottom: 8px; }
+.car-info .price { color: #e94560; font-size: 22px; font-weight: bold; margin-bottom: 15px; }
 
-h1 { color: #4a6cf7; }
+/* ====== النماذج ====== */
+.form-box { background: white; max-width: 450px; margin: 0 auto; padding: 40px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+.form-box h2 { text-align: center; color: #1a1a2e; margin-bottom: 30px; font-size: 26px; }
+.input-group { margin-bottom: 20px; }
+.input-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #444; }
+.input-group input, .input-group textarea { width: 100%; padding: 12px 15px; border: 2px solid #e1e1e1; border-radius: 8px; font-size: 16px; transition: 0.3s; }
+.input-group input:focus, .input-group textarea:focus { border-color: #e94560; outline: none; box-shadow: 0 0 8px rgba(233, 69, 96, 0.2); }
 
-.form-group {
-    margin-bottom: 20px;
-}
+/* ====== الأزرار ====== */
+.btn { width: 100%; padding: 14px; background: #e94560; color: white; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; transition: 0.3s; margin-top: 10px; text-decoration: none; display: inline-block; text-align: center; }
+.btn:hover { background: #c0354b; transform: translateY(-2px); }
 
-label {
-    display: block;
-    color: #555;
-    margin-bottom: 8px;
-    font-weight: 600;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"],
-textarea {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    font-size: 16px;
-    transition: 0.3s;
-}
-
-input:focus, textarea:focus {
-    border-color: #4a6cf7;
-    outline: none;
-}
-
-button, .btn {
-    width: 100%;
-    padding: 12px;
-    background: #4a6cf7;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-    text-decoration: none;
-    display: inline-block;
-    text-align: center;
-}
-
-button:hover, .btn:hover {
-    background: #3a5ce4;
-}
-
-.link {
-    text-align: center;
-    margin-top: 15px;
-    color: #666;
-}
-
-.link a {
-    color: #4a6cf7;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* Navbar */
-.navbar {
-    background: #4a6cf7;
-    padding: 15px 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 10px;
-    margin-bottom: 30px;
-}
-
-.navbar .logo {
-    color: white;
-    font-size: 22px;
-    font-weight: bold;
-}
-
-.navbar a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: 500;
-}
-
-.navbar a:hover {
-    text-decoration: underline;
-}
-
-/* Dashboard */
-.dashboard {
-    text-align: center;
-}
-
-.dashboard h1 {
-    font-size: 34px;
-    color: #4a6cf7;
-    margin-bottom: 10px;
-}
-
-.dashboard .email {
-    color: #888;
-    font-size: 15px;
-    margin-bottom: 25px;
-}
-
-/* Alerts */
-.error {
-    background: #ffe0e0;
-    color: #d00;
-    padding: 12px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-.success {
-    background: #e0ffe0;
-    color: #080;
-    padding: 12px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    text-align: center;
-}
+/* ====== التذييل ====== */
+footer { text-align: center; padding: 15px; font-size: 12px; background: #1a1a2e; color: #aaa; position: fixed; bottom: 0; width: 100%; }
