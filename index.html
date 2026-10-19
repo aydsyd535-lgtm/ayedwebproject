@@ -5,216 +5,249 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>سوق السيارات - الرئيسية</title>
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        /* تنسيقات خاصة لصفحة التفاصيل */
-        .details-container { max-width: 800px; margin: 40px auto; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
-        .details-img { width: 100%; max-height: 400px; object-fit: cover; border-radius: 10px; margin-bottom: 20px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        td { padding: 10px; border-bottom: 1px solid #eee; }
-        .price { color: #ff8c1a; font-size: 1.5rem; font-weight: bold; margin: 10px 0; }
-        
-        /* إخفاء صفحة التفاصيل في البداية */
-        #details-page { display: none; }
-    </style>
 </head>
 <body>
 
-    <!-- ================= الصفحة الرئيسية ================= -->
-    <div id="main-page">
-        <header>
-            <h1>🚗 سوق <span>السيارات</span></h1>
-            <p>أفضل السيارات المعروضة للبيع والشراء بأفضل الأسعار</p>
-        </header>
+    <header>
+        <h1>🚗 سوق <span>السيارات</span></h1>
+        <p>أفضل السيارات المعروضة للبيع والشراء بأفضل الأسعار</p>
+    </header>
 
-        <nav>
-            <a href="index.html">الرئيسية</a>
-            <a href="index.html">السيارات</a>
-            <a href="add_car.html">أضف سيارتك</a>
-            <a href="login.html">تسجيل الدخول</a>
-            <a href="register.html">إنشاء حساب</a>
-            <a href="contact.html">تواصل معنا</a>
-            <a href="favorites.html">❤️ مفضلتي</a>
-        </nav>
+    <nav>
+        <a href="index.html">الرئيسية</a>
+        <a href="add_car.html">أضف سيارتك</a>
+        <a href="login.html">تسجيل الدخول</a>
+        <a href="register.html">إنشاء حساب</a>
+        <a href="contact.html">تواصل معنا</a>
+        <a href="favorites.html">❤️ مفضلتي</a>
+    </nav>
 
-        <div class="row">
-            <main>
-                <section>
-                    <h2>السيارات المعروضة</h2>
-                    <div class="car-grid">
-                        
-                        <!-- 1. Ferrari -->
-                        <div class="car-card">
-                            <div class="car-img"><img src="https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=600&q=80" alt="Ferrari"></div>
-                            <div class="car-info">
-                                <h3>Ferrari F8 Tributo</h3>
-                                <p class="price">$280,000</p>
-                                <button onclick="showDetails( Ferrari F8 Tributo ,  $280,000 ,  https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=600&q=80 ,  2023 ,  بنزين ,  0 كم ,  Automatic ,  جديدة )" class="btn">عرض التفاصيل</button>
-                            </div>
+    <div class="row">
+        <main>
+            <section>
+                <h2>السيارات المعروضة</h2>
+                <div class="car-grid">
+                    
+                    <!-- 1. Ferrari -->
+                    <div class="car-card">
+                        <div class="car-img"><img src="https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=600&q=80" alt="Ferrari"></div>
+                        <div class="car-info">
+                            <h3>Ferrari F8 Tributo</h3>
+                            <p class="price">$280,000</p>
+                            <a href="car_details.html?name=Ferrari F8 Tributo&price=$280,000&img=https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=600&q=80&year=2023&fuel=بنزين&mileage=0 كم&transmission=Automatic&status=جديدة" class="btn">عرض التفاصيل</a>
                         </div>
-
-                        <!-- 2. Lamborghini -->
-                        <div class="car-card">
-                            <div class="car-img"><img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=600&q=80" alt="Lamborghini"></div>
-                            <div class="car-info">
-                                <h3>Lamborghini Huracan</h3>
-                                <p class="price">$250,000</p>
-                                <button onclick="showDetails( Lamborghini Huracan ,  $250,000 ,  https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=600&q=80 ,  2023 ,  بنزين ,  0 كم ,  Automatic ,  جديدة )" class="btn">عرض التفاصيل</button>
-                            </div>
-                        </div>
-
-                        <!-- 3. Mercedes -->
-                        <div class="car-card">
-                            <div class="car-img"><img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=600&q=80" alt="Mercedes"></div>
-                            <div class="car-info">
-                                <h3>Mercedes-Benz C-Class</h3>
-                                <p class="price">$85,000</p>
-                                <button onclick="showDetails( Mercedes-Benz C-Class ,  $85,000 ,  https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=600&q=80 ,  2023 ,  بنزين ,  0 كم ,  Automatic ,  جديدة )" class="btn">عرض التفاصيل</button>
-                            </div>
-                        </div>
-
-                        <!-- 4. BMW -->
-                        <div class="car-card">
-                            <div class="car-img"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80" alt="BMW"></div>
-                            <div class="car-info">
-                                <h3>BMW M4 2023</h3>
-                                <p class="price">$75,000</p>
-                                <button onclick="showDetails( BMW M4 2023 ,  $75,000 ,  https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80 ,  2023 ,  بنزين ,  0 كم ,  Automatic ,  جديدة )" class="btn">عرض التفاصيل</button>
-                            </div>
-                        </div>
-
-                        <!-- 5. Porsche -->
-                        <div class="car-card">
-                            <div class="car-img"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80" alt="Porsche"></div>
-                            <div class="car-info">
-                                <h3>Porsche 911 2024</h3>
-                                <p class="price">$150,000</p>
-                                <button onclick="showDetails( Porsche 911 2024 ,  $150,000 ,  https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80 ,  2024 ,  بنزين ,  0 كم ,  Automatic ,  جديدة )" class="btn">عرض التفاصيل</button>
-                            </div>
-                        </div>
-
-                        <!-- 6. Audi -->
-                        <div class="car-card">
-                            <div class="car-img"><img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&w=600&q=80" alt="Audi"></div>
-                            <div class="car-info">
-                                <h3>Audi RS7 2024</h3>
-                                <p class="price">$120,000</p>
-                                <button onclick="showDetails( Audi RS7 2024 ,  $120,000 ,  https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&w=600&q=80 ,  2024 ,  بنزين ,  0 كم ,  Automatic ,  جديدة )" class="btn">عرض التفاصيل</button>
-                            </div>
-                        </div>
-
-                        <!-- 7. Tesla -->
-                        <div class="car-card">
-                            <div class="car-img"><img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=600&q=80" alt="Tesla"></div>
-                            <div class="car-info">
-                                <h3>Tesla Model S 2024</h3>
-                                <p class="price">$90,000</p>
-                                <button onclick="showDetails( Tesla Model S 2024 ,  $90,000 ,  https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=600&q=80 ,  2024 ,  كهرباء ,  0 كم ,  Automatic ,  جديدة )" class="btn">عرض التفاصيل</button>
-                            </div>
-                        </div>
-
-                        <!-- 8. Bugatti -->
-                        <div class="car-card">
-                            <div class="car-img"><img src="https://images.unsplash.com/photo-1627454820516-dc767bcb4d3e?auto=format&fit=crop&w=600&q=80" alt="Bugatti"></div>
-                            <div class="car-info">
-                                <h3>Bugatti Chiron 2024</h3>
-                                <p class="price">$3,000,000</p>
-                                <button onclick="showDetails( Bugatti Chiron 2024 ,  $3,000,000 ,  https://images.unsplash.com/photo-1627454820516-dc767bcb4d3e?auto=format&fit=crop&w=600&q=80 ,  2024 ,  بنزين ,  0 كم ,  Automatic ,  جديدة )" class="btn">عرض التفاصيل</button>
-                            </div>
-                        </div>
-
-                        <!-- 9. Range Rover -->
-                        <div class="car-card">
-                            <div class="car-img"><img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=600&q=80" alt="Range Rover"></div>
-                            <div class="car-info">
-                                <h3>Range Rover Sport 2024</h3>
-                                <p class="price">$120,000</p>
-                                <button onclick="showDetails( Range Rover Sport 2024 ,  $120,000 ,  https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=600&q=80 ,  2024 ,  بنزين ,  0 كم ,  Automatic ,  جديدة )" class="btn">عرض التفاصيل</button>
-                            </div>
-                        </div>
-
-                        <!-- 10. Mustang -->
-                        <div class="car-card">
-                            <div class="car-img"><img src="https://images.unsplash.com/photo-1584345604476-8ec5e12e42dd?auto=format&fit=crop&w=600&q=80" alt="Mustang"></div>
-                            <div class="car-info">
-                                <h3>Ford Mustang GT 2024</h3>
-                                <p class="price">$60,000</p>
-                                <button onclick="showDetails( Ford Mustang GT 2024 ,  $60,000 ,  https://images.unsplash.com/photo-1584345604476-8ec5e12e42dd?auto=format&fit=crop&w=600&q=80 ,  2024 ,  بنزين ,  0 كم ,  Automatic ,  جديدة )" class="btn">عرض التفاصيل</button>
-                            </div>
-                        </div>
-
                     </div>
-                </section>
-            </main>
 
-            <aside>
-                <h3>📌 معلومات سريعة</h3>
-                <div class="side-item">
-                    <strong>📊 إحصائيات</strong>
-                    <span>+10 سيارات متاحة للبيع</span>
-                </div>
-                <div class="side-item">
-                    <strong>🏆 ضمان الجودة</strong>
-                    <span>فحص شامل لكل سيارة</span>
-                </div>
-            </aside>
-        </div>
+                    <!-- 2. Lamborghini -->
+                    <div class="car-card">
+                        <div class="car-img"><img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=600&q=80" alt="Lamborghini"></div>
+                        <div class="car-info">
+                            <h3>Lamborghini Huracan</h3>
+                            <p class="price">$250,000</p>
+                            <a href="car_details.html?name=Lamborghini Huracan&price=$250,000&img=https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=600&q=80&year=2023&fuel=بنزين&mileage=0 كم&transmission=Automatic&status=جديدة" class="btn">عرض التفاصيل</a>
+                        </div>
+                    </div>
 
-        <footer>
-            <p>© 2026 - 2027 سوق السيارات - معرض Ayed. جميع الحقوق محفوظة.</p>
-        </footer>
+                    <!-- 3. Mercedes -->
+                    <div class="car-card">
+                        <div class="car-img"><img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=600&q=80" alt="Mercedes"></div>
+                        <div class="car-info">
+                            <h3>Mercedes-Benz C-Class</h3>
+                            <p class="price">$85,000</p>
+                            <a href="car_details.html?name=Mercedes-Benz C-Class&price=$85,000&img=https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=600&q=80&year=2023&fuel=بنزين&mileage=0 كم&transmission=Automatic&status=جديدة" class="btn">عرض التفاصيل</a>
+                        </div>
+                    </div>
+
+                    <!-- 4. BMW -->
+                    <div class="car-card">
+                        <div class="car-img"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80" alt="BMW"></div>
+                        <div class="car-info">
+                            <h3>BMW M4 2023</h3>
+                            <p class="price">$75,000</p>
+                            <a href="car_details.html?name=BMW M4 2023&price=$75,000&img=https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80&year=2023&fuel=بنزين&mileage=0 كم&transmission=Automatic&status=جديدة" class="btn">عرض التفاصيل</a>
+                        </div>
+                    </div>
+
+                    <!-- 5. Porsche -->
+                    <div class="car-card">
+                        <div class="car-img"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80" alt="Porsche"></div>
+                        <div class="car-info">
+                            <h3>Porsche 911 2024</h3>
+                            <p class="price">$150,000</p>
+                            <a href="car_details.html?name=Porsche 911 2024&price=$150,000&img=https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80&year=2024&fuel=بنزين&mileage=0 كم&transmission=Automatic&status=جديدة" class="btn">عرض التفاصيل</a>
+                        </div>
+                    </div>
+
+                    <!-- 6. Audi -->
+                    <div class="car-card">
+                        <div class="car-img"><img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&w=600&q=80" alt="Audi"></div>
+                        <div class="car-info">
+                            <h3>Audi RS7 2024</h3>
+                            <p class="price">$120,000</p>
+                            <a href="car_details.html?name=Audi RS7 2024&price=$120,000&img=https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&w=600&q=80&year=2024&fuel=بنزين&mileage=0 كم&transmission=Automatic&status=جديدة" class="btn">عرض التفاصيل</a>
+                        </div>
+                    </div>
+
+                    <!-- 7. Tesla -->
+                    <div class="car-card">
+                        <div class="car-img"><img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=600&q=80" alt="Tesla"></div>
+                        <div class="car-info">
+                            <h3>Tesla Model S 2024</h3>
+                            <p class="price">$90,000</p>
+                            <a href="car_details.html?name=Tesla Model S 2024&price=$90,000&img=https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=600&q=80&year=2024&fuel=كهرباء&mileage=0 كم&transmission=Automatic&status=جديدة" class="btn">عرض التفاصيل</a>
+                        </div>
+                    </div>
+
+                    <!-- 8. Bugatti -->
+                    <div class="car-card">
+                        <div class="car-img"><img src="https://images.unsplash.com/photo-1627454820516-dc767bcb4d3e?auto=format&fit=crop&w=600&q=80" alt="Bugatti"></div>
+                        <div class="car-info">
+                            <h3>Bugatti Chiron 2024</h3>
+                            <p class="price">$3,000,000</p>
+                            <a href="car_details.html?name=Bugatti Chiron 2024&price=$3,000,000&img=https://images.unsplash.com/photo-1627454820516-dc767bcb4d3e?auto=format&fit=crop&w=600&q=80&year=2024&fuel=بنزين&mileage=0 كم&transmission=Automatic&status=جديدة" class="btn">عرض التفاصيل</a>
+                        </div>
+                    </div>
+
+                    <!-- 9. Range Rover -->
+                    <div class="car-card">
+                        <div class="car-img"><img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=600&q=80" alt="Range Rover"></div>
+                        <div class="car-info">
+                            <h3>Range Rover Sport 2024</h3>
+                            <p class="price">$120,000</p>
+                            <a href="car_details.html?name=Range Rover Sport 2024&price=$120,000&img=https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=600&q=80&year=2024&fuel=بنزين&mileage=0 كم&transmission=Automatic&status=جديدة" class="btn">عرض التفاصيل</a>
+                        </div>
+                    </div>
+
+                    <!-- 10. Mustang -->
+                    <div class="car-card">
+                        <div class="car-img"><img src="https://images.unsplash.com/photo-1584345604476-8ec5e12e42dd?auto=format&fit=crop&w=600&q=80" alt="Mustang"></div>
+                        <div class="car-info">
+                            <h3>Ford Mustang GT 2024</h3>
+                            <p class="price">$60,000</p>
+                            <a href="car_details.html?name=Ford Mustang GT 2024&price=$60,000&img=https://images.unsplash.com/photo-1584345604476-8ec5e12e42dd?auto=format&fit=crop&w=600&q=80&year=2024&fuel=بنزين&mileage=0 كم&transmission=Automatic&status=جديدة" class="btn">عرض التفاصيل</a>
+                        </div>
+                    </div>
+
+                    <!-- 11. Jeep -->
+                    <div class="car-card">
+                        <div class="car-img"><img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80" alt="Jeep"></div>
+                        <div class="car-info">
+                            <h3>Jeep Grand Cherokee 2024</h3>
+                            <p class="price">$70,000</p>
+                            <a href="car_details.html?name=Jeep Grand Cherokee 2024&price=$70,000&img=https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80&year=2024&fuel=بنزين&mileage=0 كم&transmission=Automatic&status=جديدة" class="btn">عرض التفاصيل</a>
+                        </div>
+                    </div>
+
+                    <!-- 12. Aston Martin -->
+                    <div class="car-card">
+                        <div class="car-img"><img src="https://images.unsplash.com/photo-1603386329225-868f9b1ee6c9?auto=format&fit=crop&w=600&q=80" alt="Aston Martin"></div>
+                        <div class="car-info">
+                            <h3>Aston Martin DB11</h3>
+                            <p class="price">$205,000</p>
+                            <a href="car_details.html?name=Aston Martin DB11&price=$205,000&img=https://images.unsplash.com/photo-1603386329225-868f9b1ee6c9?auto=format&fit=crop&w=600&q=80&year=2024&fuel=بنزين&mileage=0 كم&transmission=Automatic&status=جديدة" class="btn">عرض التفاصيل</a>
+                        </div>
+                    </div>
+
+                    <!-- 13. Bentley -->
+                    <div class="car-card">
+                        <div class="car-img"><img src="https://images.unsplash.com/photo-1626668893632-6f3a4466d22f?auto=format&fit=crop&w=600&q=80" alt="Bentley"></div>
+                        <div class="car-info">
+                            <h3>Bentley Continental GT</h3>
+                            <p class="price">$250,000</p>
+                            <a href="car_details.html?name=Bentley Continental GT&price=$250,000&img=https://images.unsplash.com/photo-1626668893632-6f3a4466d22f?auto=format&fit=crop&w=600&q=80&year=2024&fuel=بنزين&mileage=0 كم&transmission=Automatic&status=جديدة" class="btn">عرض التفاصيل</a>
+                        </div>
+                    </div>
+
+                    <!-- 14. Maserati -->
+                    <div class="car-card">
+                        <div class="car-img"><img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=600&q=80" alt="Maserati"></div>
+                        <div class="car-info">
+                            <h3>Maserati Ghibli 2024</h3>
+                            <p class="price">$95,000</p>
+                            <a href="car_details.html?name=Maserati Ghibli 2024&price=$95,000&img=https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=600&q=80&year=2024&fuel=بنزين&mileage=0 كم&transmission=Automatic&status=جديدة" class="btn">عرض التفاصيل</a>
+                        </div>
+                    </div>
+
+                    <!-- 15. Lexus -->
+                    <div class="car-card">
+                        <div class="car-img"><img src="https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=600&q=80" alt="Lexus"></div>
+                        <div class="car-info">
+                            <h3>Lexus LC 500 2024</h3>
+                            <p class="price">$105,000</p>
+                            <a href="car_details.html?name=Lexus LC 500 2024&price=$105,000&img=https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=600&q=80&year=2024&fuel=بنزين&mileage=0 كم&transmission=Automatic&status=جديدة" class="btn">عرض التفاصيل</a>
+                        </div>
+                    </div>
+
+                    <!-- 16. Nissan GT-R -->
+                    <div class="car-card">
+                        <div class="car-img"><img src="https://images.unsplash.com/photo-1616422285623-13ff0162193c?auto=format&fit=crop&w=600&q=80" alt="Nissan GT-R"></div>
+                        <div class="car-info">
+                            <h3>Nissan GT-R 2024</h3>
+                            <p class="price">$130,000</p>
+                            <a href="car_details.html?name=Nissan GT-R 2024&price=$130,000&img=https://images.unsplash.com/photo-1616422285623-13ff0162193c?auto=format&fit=crop&w=600&q=80&year=2024&fuel=بنزين&mileage=0 كم&transmission=Automatic&status=جديدة" class="btn">عرض التفاصيل</a>
+                        </div>
+                    </div>
+
+                    <!-- 17. Nissan Sunny -->
+                    <div class="car-card">
+                        <div class="car-img"><img src="https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&w=600&q=80" alt="Nissan Sunny"></div>
+                        <div class="car-info">
+                            <h3>Nissan Sunny 2020</h3>
+                            <p class="price">$12,000</p>
+                            <a href="car_details.html?name=Nissan Sunny 2020&price=$12,000&img=https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&w=600&q=80&year=2020&fuel=كهرباء&mileage=0 كم&transmission=Automatic&status=جديدة" class="btn">عرض التفاصيل</a>
+                        </div>
+                    </div>
+
+                    <!-- 18. Chevrolet Corvette -->
+                    <div class="car-card">
+                        <div class="car-img"><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=600&q=80" alt="Corvette"></div>
+                        <div class="car-info">
+                            <h3>Chevrolet Corvette 2024</h3>
+                            <p class="price">$85,000</p>
+                            <a href="car_details.html?name=Chevrolet Corvette 2024&price=$85,000&img=https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=600&q=80&year=2024&fuel=بنزين&mileage=0 كم&transmission=Automatic&status=جديدة" class="btn">عرض التفاصيل</a>
+                        </div>
+                    </div>
+
+                    <!-- 19. McLaren -->
+                    <div class="car-card">
+                        <div class="car-img"><img src="https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&w=600&q=80" alt="McLaren"></div>
+                        <div class="car-info">
+                            <h3>McLaren 720S</h3>
+                            <p class="price">$320,000</p>
+                            <a href="car_details.html?name=McLaren 720S&price=$320,000&img=https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&w=600&q=80&year=2024&fuel=بنزين&mileage=0 كم&transmission=Automatic&status=جديدة" class="btn">عرض التفاصيل</a>
+                        </div>
+                    </div>
+
+                    <!-- 20. Toyota Corolla -->
+                    <div class="car-card">
+                        <div class="car-img"><img src="https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=600&q=80" alt="Toyota Corolla"></div>
+                        <div class="car-info">
+                            <h3>Toyota Corolla 2022</h3>
+                            <p class="price">$22,000</p>
+                            <a href="car_details.html?name=Toyota Corolla 2022&price=$22,000&img=https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=600&q=80&year=2022&fuel=بنزين&mileage=45000 كم&transmission=Automatic&status=مستعملة" class="btn">عرض التفاصيل</a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+
+        <aside>
+            <h3>📌 معلومات سريعة</h3>
+            <div class="side-item">
+                <strong>📊 إحصائيات</strong>
+                <span>+20 سيارات متاحة للبيع</span>
+            </div>
+            <div class="side-item">
+                <strong>🏆 ضمان الجودة</strong>
+                <span>فحص شامل لكل سيارة</span>
+            </div>
+        </aside>
     </div>
 
-    <!-- ================= صفحة التفاصيل (تظهر عند الضغط) ================= -->
-    <div id="details-page" class="container">
-        <div class="details-container">
-            <button onclick="showMain()" class="btn" style="margin-bottom:20px;">← العودة للرئيسية</button>
-            
-            <img id="det-img" src="" class="details-img">
-            <h2 id="det-name" style="color: #0b2b4a;"></h2>
-            <p id="det-price" class="price"></p>
-            
-            <table>
-                <tr><td>تاريخ الصناعة</td><td id="det-year"></td></tr>
-                <tr><td>نوع الوقود</td><td id="det-fuel"></td></tr>
-                <tr><td>الممشى (كم)</td><td id="det-mileage"></td></tr>
-                <tr><td>ناقل الحركة</td><td id="det-transmission"></td></tr>
-                <tr><td>حالة السيارة</td><td id="det-status"></td></tr>
-                <tr><td>حالة البيع</td><td><span style="color: green; font-weight: bold;">متاحة للبيع ✅</span></td></tr>
-            </table>
-
-            <button onclick="alert( هذه نسخة HTML للعرض فقط. );" class="btn" style="background: #28a745; width: 100%; margin-top: 20px;">شراء هذه السيارة</button>
-        </div>
-    </div>
-
-    <!-- ================= كود JavaScript للتحكم ================= -->
-    <script>
-        function showDetails(name, price, img, year, fuel, mileage, transmission, status) {
-            // إخفاء الصفحة الرئيسية
-            document.getElementById( main-page ).style.display =  none ;
-            
-            // إظهار صفحة التفاصيل
-            document.getElementById( details-page ).style.display =  block ;
-            
-            // تعبئة البيانات
-            document.getElementById( det-name ).textContent = name;
-            document.getElementById( det-price ).textContent = price;
-            document.getElementById( det-img ).src = img;
-            document.getElementById( det-year ).textContent = year;
-            document.getElementById( det-fuel ).textContent = fuel;
-            document.getElementById( det-mileage ).textContent = mileage;
-            document.getElementById( det-transmission ).textContent = transmission;
-            document.getElementById( det-status ).textContent = status;
-
-            // التمرير لأعلى الصفحة
-            window.scrollTo(0, 0);
-        }
-
-        function showMain() {
-            document.getElementById( details-page ).style.display =  none ;
-            document.getElementById( main-page ).style.display =  block ;
-            window.scrollTo(0, 0);
-        }
-    </script>
+    <footer>
+        <p>© 2026 - 2027 سوق السيارات - معرض Ayed. جميع الحقوق محفوظة.</p>
+    </footer>
 
 </body>
 </html>
