@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أضف سيارتك - سوق السيارات</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container add-car-box">
+        <a href="index.html" class="btn" style="margin-bottom: 20px;">← العودة للرئيسية</a>
+        
+        <h2 style="text-align: center; color: #0b2b4a; margin-bottom: 20px;">إضافة سيارة جديدة</h2>
+        
+        <form onsubmit="event.preventDefault(); alert( ✅ تمت إضافة سيارتك بنجاح! (نسخة تجريبية) ); window.location.href= index.html ;">
+            <div class="form-group">
+                <label>اسم السيارة (الماركة والموديل):</label>
+                <input type="text" placeholder="تويوتا كورولا 2024" required>
+            </div>
+            <div class="form-group">
+                <label>السعر (بالدولار):</label>
+                <input type="number" placeholder="25000" required>
+            </div>
+            <div class="form-group">
+                <label>سنة الصنع:</label>
+                <input type="number" placeholder="2024" required>
+            </div>
+            <div class="form-group">
+                <label>نوع الوقود:</label>
+                <select required>
+                    <option value="">-- اختر --</option>
+                    <option value="بنزين">بنزين</option>
+                    <option value="ديزل">ديزل</option>
+                    <option value="كهرباء">كهرباء</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>رقم اللوحة:</label>
+                <input type="text" placeholder="أ ب ج 1234" required>
+            </div>
+            <div class="form-group">
+                <label>حالة السيارة:</label>
+                <select required>
+                    <option value="">-- اختر --</option>
+                    <option value="جديدة">جديدة</option>
+                    <option value="مستعملة">مستعملة</option>
+                </select>
+            </div>
+            <button type="submit" class="btn" style="width: 100%; margin-top: 10px;">نشر الإعلان</button>
+        </form>
+    </div>
+</body>
+</html>
