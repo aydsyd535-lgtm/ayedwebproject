@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>مفضلتي - سوق السيارات</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>🚗 سوق <span>السيارات</span></h1>
+    </header>
+    <nav>
+        <a href="index.html">الرئيسية</a>
+        <a href="favorites.html">❤️ مفضلتي</a>
+        <a href="login.html">تسجيل الدخول</a>
+    </nav>
+
+    <div class="container" style="max-width: 1100px; margin: 40px auto; padding: 20px; background: #fff; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+        <h2 style="text-align:center; color:#0b2b4a; margin-bottom:20px;">❤️ سياراتي المفضلة</h2>
+        
+        <div class="car-grid" id="fav-grid" style="display: flex; flex-wrap: wrap; gap: 20px;">
+            <!-- سيتم إضافة السيارات المفضلة هنا -->
+        </div>
+    </div>
+
+    <script>
+        // نفس قائمة السيارات
+        const cars = [
+            { id: 1, name: "Ferrari F8 Tributo", price: 280000, img: "https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=600&q=80" },
+            { id: 2, name: "Lamborghini Huracan", price: 250000, img: "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=600&q=80" },
+            { id: 3, name: "Mercedes-Benz C-Class", price: 85000, img: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=600&q=80" },
+            { id: 4, name: "BMW M4 2023", price: 75000, img: "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80" },
+            { id: 5, name: "Porsche 911 2024", price: 150000, img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80" },
+            { id: 6, name: "Audi RS7 2024", price: 120000, img: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&w=600&q=80" },
+            { id: 7, name: "Tesla Model S 2024", price: 90000, img: "https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=600&q=80" },
+            { id: 8, name: "Bugatti Chiron 2024", price: 3000000, img: "https://images.unsplash.com/photo-1627454820516-dc767bcb4d3e?auto=format&fit=crop&w=600&q=80" },
+            { id: 9, name: "Range Rover Sport 2024", price: 120000, img: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=600&q=80" },
+            { id: 10, name: "Ford Mustang GT 2024", price: 60000, img: "https://images.unsplash.com/photo-1584345604476-8ec5e12e42dd?auto=format&fit=crop&w=600&q=80" },
+            { id: 11, name: "Jeep Grand Cherokee 2024", price: 70000, img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80" },
+            { id: 12, name: "Aston Martin DB11", price: 205000, img: "https://images.unsplash.com/photo-1603386329225-868f9b1ee6c9?auto=format&fit=crop&w=600&q=80" },
+            { id: 13, name: "Bentley Continental GT", price: 250000, img: "https://images.unsplash.com/photo-1626668893632-6f3a4466d22f?auto=format&fit=crop&w=600&q=80" },
+            { id: 14, name: "Maserati Ghibli 2024", price: 95000, img: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=600&q=80" },
+            { id: 15, name: "Lexus LC 500 2024", price: 105000, img: "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=600&q=80" },
+            { id: 16, name: "Nissan GT-R 2024", price: 130000, img: "https://images.unsplash.com/photo-1616422285623-13ff0162193c?auto=format&fit=crop&w=600&q=80" },
+            { id: 17, name: "Nissan Sunny 2020", price: 12000, img: "https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&w=600&q=80" },
+            { id: 18, name: "Chevrolet Corvette 2024", price: 85000, img: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=600&q=80" },
+            { id: 19, name: "McLaren 720S", price: 320000, img: "https://images.unsplash.com/photo-1621135802920-133df287f89c?auto=format&fit=crop&w=600&q=80" },
+            { id: 20, name: "Toyota Corolla 2022", price: 22000, img: "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=600&q=80" }
+        ];
+
+        function getFavorites() {
+            return JSON.parse(localStorage.getItem( favorites )) || [];
+        }
+
+        function renderFavorites() {
+            const grid = document.getElementById( fav-grid );
+            const favorites = getFavorites();
+            grid.innerHTML =   ;
+
+            if (favorites.length === 0) {
+                grid.innerHTML =  <p style="text-align:center; width:100%; color:#777;">لا توجد سيارات في المفضلة حالياً.</p> ;
+                return;
+            }
+
+            const favCars = cars.filter(car => favorites.includes(car.id));
+
+            favCars.forEach(car => {
+                const card = document.createElement( div );
+                card.className =  car-card ;
+                card.innerHTML = `
+                    <div class="car-img"><img src="${car.img}" alt="${car.name}"></div>
+                    <div class="car-info">
+                        <h3>${car.name}</h3>
+                        <p class="price">$${car.price.toLocaleString()}</p>
+                        <a href="car_details.html?id=${car.id}" class="btn">عرض التفاصيل</a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        renderFavorites();
+    </script>
+</body>
+</html>
