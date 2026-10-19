@@ -5,223 +5,167 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>سوق السيارات - الرئيسية</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* تنسيقات خاصة لصفحة التفاصيل */
+        .details-container { max-width: 800px; margin: 40px auto; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        .details-img { width: 100%; max-height: 400px; object-fit: cover; border-radius: 10px; margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        td { padding: 10px; border-bottom: 1px solid #eee; }
+        .price { color: #ff8c1a; font-size: 1.5rem; font-weight: bold; margin: 10px 0; }
+        
+        /* إخفاء صفحة التفاصيل في البداية */
+        #details-page { display: none; }
+    </style>
 </head>
 <body>
 
-    <header>
-        <h1>🚗 سوق <span>السيارات</span></h1>
-        <p>أفضل السيارات المعروضة للبيع والشراء بأفضل الأسعار</p>
-    </header>
+    <!-- ================= الصفحة الرئيسية ================= -->
+    <div id="main-page">
+        <header>
+            <h1>🚗 سوق <span>السيارات</span></h1>
+            <p>أفضل السيارات المعروضة للبيع والشراء بأفضل الأسعار</p>
+        </header>
 
-    <nav>
-        <a href="index.html">الرئيسية</a>
-        <a href="index.html">السيارات</a>
-        <a href="add_car.html">أضف سيارتك</a>
-        <a href="login.html">تسجيل الدخول</a>
-        <a href="register.html">إنشاء حساب</a>
-        <a href="contact.html">تواصل معنا</a>
-        <a href="favorites.html">❤️ مفضلتي</a>
-    </nav>
+        <nav>
+            <a href="index.html">الرئيسية</a>
+            <a href="index.html">السيارات</a>
+            <a href="add_car.html">أضف سيارتك</a>
+            <a href="login.html">تسجيل الدخول</a>
+            <a href="register.html">إنشاء حساب</a>
+            <a href="contact.html">تواصل معنا</a>
+            <a href="favorites.html">❤️ مفضلتي</a>
+        </nav>
 
-    <div class="row">
-        <main>
-            <section>
-                <h2>السيارات المعروضة</h2>
-                <div class="car-grid">
-                    
-                    <!-- 1. Ferrari -->
-                    <div class="car-card">
-                        <div class="car-img"><img src="https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=600&q=80" alt="Ferrari"></div>
-                        <div class="car-info">
-                            <h3>Ferrari F8 Tributo</h3>
-                            <p class="price">$280,000</p>
-                            <div style="display:flex; gap:5px; justify-content:center; margin-top:10px;">
-                                <a href="car_details.html?id=1" class="btn" style="flex:1;">عرض التفاصيل</a>
-                                <button onclick="toggleFav(1)" id="fav-btn-1" class="btn" style="width:50px; background:#fff; color:red; border:1px solid #ccc; display:flex; align-items:center; justify-content:center; padding:10px; cursor:pointer;">🤍</button>
+        <div class="row">
+            <main>
+                <section>
+                    <h2>السيارات المعروضة</h2>
+                    <div class="car-grid">
+                        
+                        <!-- السيارة 1: فيراري -->
+                        <div class="car-card">
+                            <div class="car-img"><img src="https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=600&q=80" alt="Ferrari"></div>
+                            <div class="car-info">
+                                <h3>Ferrari F8 Tributo</h3>
+                                <p class="price">$280,000</p>
+                                <button onclick="showDetails( Ferrari F8 Tributo ,  $280,000 ,  https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=600&q=80 ,  2023 ,  بنزين ,  0 كم ,  Automatic ,  جديدة )" class="btn">عرض التفاصيل</button>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- 2. Lamborghini -->
-                    <div class="car-card">
-                        <div class="car-img"><img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=600&q=80" alt="Lamborghini"></div>
-                        <div class="car-info">
-                            <h3>Lamborghini Huracan</h3>
-                            <p class="price">$250,000</p>
-                            <div style="display:flex; gap:5px; justify-content:center; margin-top:10px;">
-                                <a href="car_details.html?id=2" class="btn" style="flex:1;">عرض التفاصيل</a>
-                                <button onclick="toggleFav(2)" id="fav-btn-2" class="btn" style="width:50px; background:#fff; color:red; border:1px solid #ccc; display:flex; align-items:center; justify-content:center; padding:10px; cursor:pointer;">🤍</button>
+                        <!-- السيارة 2: لامبورغيني -->
+                        <div class="car-card">
+                            <div class="car-img"><img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=600&q=80" alt="Lamborghini"></div>
+                            <div class="car-info">
+                                <h3>Lamborghini Huracan</h3>
+                                <p class="price">$250,000</p>
+                                <button onclick="showDetails( Lamborghini Huracan ,  $250,000 ,  https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=600&q=80 ,  2023 ,  بنزين ,  0 كم ,  Automatic ,  جديدة )" class="btn">عرض التفاصيل</button>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- 3. Mercedes -->
-                    <div class="car-card">
-                        <div class="car-img"><img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=600&q=80" alt="Mercedes"></div>
-                        <div class="car-info">
-                            <h3>Mercedes-Benz C-Class</h3>
-                            <p class="price">$85,000</p>
-                            <div style="display:flex; gap:5px; justify-content:center; margin-top:10px;">
-                                <a href="car_details.html?id=3" class="btn" style="flex:1;">عرض التفاصيل</a>
-                                <button onclick="toggleFav(3)" id="fav-btn-3" class="btn" style="width:50px; background:#fff; color:red; border:1px solid #ccc; display:flex; align-items:center; justify-content:center; padding:10px; cursor:pointer;">🤍</button>
+                        <!-- السيارة 3: مرسيدس -->
+                        <div class="car-card">
+                            <div class="car-img"><img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=600&q=80" alt="Mercedes"></div>
+                            <div class="car-info">
+                                <h3>Mercedes-Benz C-Class</h3>
+                                <p class="price">$85,000</p>
+                                <button onclick="showDetails( Mercedes-Benz C-Class ,  $85,000 ,  https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=600&q=80 ,  2023 ,  بنزين ,  0 كم ,  Automatic ,  جديدة )" class="btn">عرض التفاصيل</button>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- 4. BMW -->
-                    <div class="car-card">
-                        <div class="car-img"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80" alt="BMW"></div>
-                        <div class="car-info">
-                            <h3>BMW M4 2023</h3>
-                            <p class="price">$75,000</p>
-                            <div style="display:flex; gap:5px; justify-content:center; margin-top:10px;">
-                                <a href="car_details.html?id=4" class="btn" style="flex:1;">عرض التفاصيل</a>
-                                <button onclick="toggleFav(4)" id="fav-btn-4" class="btn" style="width:50px; background:#fff; color:red; border:1px solid #ccc; display:flex; align-items:center; justify-content:center; padding:10px; cursor:pointer;">🤍</button>
+                        <!-- السيارة 4: بي إم دبليو -->
+                        <div class="car-card">
+                            <div class="car-img"><img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80" alt="BMW"></div>
+                            <div class="car-info">
+                                <h3>BMW M4 2023</h3>
+                                <p class="price">$75,000</p>
+                                <button onclick="showDetails( BMW M4 2023 ,  $75,000 ,  https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=600&q=80 ,  2023 ,  بنزين ,  0 كم ,  Automatic ,  جديدة )" class="btn">عرض التفاصيل</button>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- 5. Porsche -->
-                    <div class="car-card">
-                        <div class="car-img"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80" alt="Porsche"></div>
-                        <div class="car-info">
-                            <h3>Porsche 911 2024</h3>
-                            <p class="price">$150,000</p>
-                            <div style="display:flex; gap:5px; justify-content:center; margin-top:10px;">
-                                <a href="car_details.html?id=5" class="btn" style="flex:1;">عرض التفاصيل</a>
-                                <button onclick="toggleFav(5)" id="fav-btn-5" class="btn" style="width:50px; background:#fff; color:red; border:1px solid #ccc; display:flex; align-items:center; justify-content:center; padding:10px; cursor:pointer;">🤍</button>
+                        <!-- السيارة 5: بورش -->
+                        <div class="car-card">
+                            <div class="car-img"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80" alt="Porsche"></div>
+                            <div class="car-info">
+                                <h3>Porsche 911 2024</h3>
+                                <p class="price">$150,000</p>
+                                <button onclick="showDetails( Porsche 911 2024 ,  $150,000 ,  https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80 ,  2024 ,  بنزين ,  0 كم ,  Automatic ,  جديدة )" class="btn">عرض التفاصيل</button>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- 6. Audi -->
-                    <div class="car-card">
-                        <div class="car-img"><img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&w=600&q=80" alt="Audi"></div>
-                        <div class="car-info">
-                            <h3>Audi RS7 2024</h3>
-                            <p class="price">$120,000</p>
-                            <div style="display:flex; gap:5px; justify-content:center; margin-top:10px;">
-                                <a href="car_details.html?id=6" class="btn" style="flex:1;">عرض التفاصيل</a>
-                                <button onclick="toggleFav(6)" id="fav-btn-6" class="btn" style="width:50px; background:#fff; color:red; border:1px solid #ccc; display:flex; align-items:center; justify-content:center; padding:10px; cursor:pointer;">🤍</button>
-                            </div>
-                        </div>
                     </div>
+                </section>
+            </main>
 
-                    <!-- 7. Tesla -->
-                    <div class="car-card">
-                        <div class="car-img"><img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=600&q=80" alt="Tesla"></div>
-                        <div class="car-info">
-                            <h3>Tesla Model S 2024</h3>
-                            <p class="price">$90,000</p>
-                            <div style="display:flex; gap:5px; justify-content:center; margin-top:10px;">
-                                <a href="car_details.html?id=7" class="btn" style="flex:1;">عرض التفاصيل</a>
-                                <button onclick="toggleFav(7)" id="fav-btn-7" class="btn" style="width:50px; background:#fff; color:red; border:1px solid #ccc; display:flex; align-items:center; justify-content:center; padding:10px; cursor:pointer;">🤍</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 8. Bugatti -->
-                    <div class="car-card">
-                        <div class="car-img"><img src="https://images.unsplash.com/photo-1627454820516-dc767bcb4d3e?auto=format&fit=crop&w=600&q=80" alt="Bugatti"></div>
-                        <div class="car-info">
-                            <h3>Bugatti Chiron 2024</h3>
-                            <p class="price">$3,000,000</p>
-                            <div style="display:flex; gap:5px; justify-content:center; margin-top:10px;">
-                                <a href="car_details.html?id=8" class="btn" style="flex:1;">عرض التفاصيل</a>
-                                <button onclick="toggleFav(8)" id="fav-btn-8" class="btn" style="width:50px; background:#fff; color:red; border:1px solid #ccc; display:flex; align-items:center; justify-content:center; padding:10px; cursor:pointer;">🤍</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 9. Range Rover -->
-                    <div class="car-card">
-                        <div class="car-img"><img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=600&q=80" alt="Range Rover"></div>
-                        <div class="car-info">
-                            <h3>Range Rover Sport 2024</h3>
-                            <p class="price">$120,000</p>
-                            <div style="display:flex; gap:5px; justify-content:center; margin-top:10px;">
-                                <a href="car_details.html?id=9" class="btn" style="flex:1;">عرض التفاصيل</a>
-                                <button onclick="toggleFav(9)" id="fav-btn-9" class="btn" style="width:50px; background:#fff; color:red; border:1px solid #ccc; display:flex; align-items:center; justify-content:center; padding:10px; cursor:pointer;">🤍</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 10. Mustang -->
-                    <div class="car-card">
-                        <div class="car-img"><img src="https://images.unsplash.com/photo-1584345604476-8ec5e12e42dd?auto=format&fit=crop&w=600&q=80" alt="Mustang"></div>
-                        <div class="car-info">
-                            <h3>Ford Mustang GT 2024</h3>
-                            <p class="price">$60,000</p>
-                            <div style="display:flex; gap:5px; justify-content:center; margin-top:10px;">
-                                <a href="car_details.html?id=10" class="btn" style="flex:1;">عرض التفاصيل</a>
-                                <button onclick="toggleFav(10)" id="fav-btn-10" class="btn" style="width:50px; background:#fff; color:red; border:1px solid #ccc; display:flex; align-items:center; justify-content:center; padding:10px; cursor:pointer;">🤍</button>
-                            </div>
-                        </div>
-                    </div>
-
+            <aside>
+                <h3>📌 معلومات سريعة</h3>
+                <div class="side-item">
+                    <strong>📊 إحصائيات</strong>
+                    <span>+5 سيارات متاحة للبيع</span>
                 </div>
-            </section>
-        </main>
+                <div class="side-item">
+                    <strong>🏆 ضمان الجودة</strong>
+                    <span>فحص شامل لكل سيارة</span>
+                </div>
+            </aside>
+        </div>
 
-        <aside>
-            <h3>📌 معلومات سريعة</h3>
-            <div class="side-item">
-                <strong>📊 إحصائيات</strong>
-                <span>+10 سيارات متاحة للبيع</span>
-            </div>
-            <div class="side-item">
-                <strong>🏆 ضمان الجودة</strong>
-                <span>فحص شامل لكل سيارة</span>
-            </div>
-        </aside>
+        <footer>
+            <p>© 2026 - 2027 سوق السيارات - معرض Ayed. جميع الحقوق محفوظة.</p>
+        </footer>
     </div>
 
-    <footer>
-        <p>© 2026 - 2027 سوق السيارات - معرض Ayed. جميع الحقوق محفوظة.</p>
-    </footer>
+    <!-- ================= صفحة التفاصيل (تظهر عند الضغط) ================= -->
+    <div id="details-page" class="container">
+        <div class="details-container">
+            <button onclick="showMain()" class="btn" style="margin-bottom:20px;">← العودة للرئيسية</button>
+            
+            <img id="det-img" src="" class="details-img">
+            <h2 id="det-name" style="color: #0b2b4a;"></h2>
+            <p id="det-price" class="price"></p>
+            
+            <table>
+                <tr><td>تاريخ الصناعة</td><td id="det-year"></td></tr>
+                <tr><td>نوع الوقود</td><td id="det-fuel"></td></tr>
+                <tr><td>الممشى (كم)</td><td id="det-mileage"></td></tr>
+                <tr><td>ناقل الحركة</td><td id="det-transmission"></td></tr>
+                <tr><td>حالة السيارة</td><td id="det-status"></td></tr>
+                <tr><td>حالة البيع</td><td><span style="color: green; font-weight: bold;">متاحة للبيع ✅</span></td></tr>
+            </table>
 
-    <!-- كود JavaScript الخاص بالمفضلة -->
+            <button onclick="alert( هذه نسخة HTML للعرض فقط. );" class="btn" style="background: #28a745; width: 100%; margin-top: 20px;">شراء هذه السيارة</button>
+        </div>
+    </div>
+
+    <!-- ================= كود JavaScript للتحكم ================= -->
     <script>
-        // دالة لجلب المفضلة من ذاكرة المتصفح
-        function getFavorites() {
-            return JSON.parse(localStorage.getItem( favorites )) || [];
+        // دالة إظهار صفحة التفاصيل
+        function showDetails(name, price, img, year, fuel, mileage, transmission, status) {
+            // إخفاء الصفحة الرئيسية
+            document.getElementById( main-page ).style.display =  none ;
+            
+            // إظهار صفحة التفاصيل
+            document.getElementById( details-page ).style.display =  block ;
+            
+            // تعبئة البيانات
+            document.getElementById( det-name ).textContent = name;
+            document.getElementById( det-price ).textContent = price;
+            document.getElementById( det-img ).src = img;
+            document.getElementById( det-year ).textContent = year;
+            document.getElementById( det-fuel ).textContent = fuel;
+            document.getElementById( det-mileage ).textContent = mileage;
+            document.getElementById( det-transmission ).textContent = transmission;
+            document.getElementById( det-status ).textContent = status;
+
+            // التمرير لأعلى الصفحة
+            window.scrollTo(0, 0);
         }
 
-        // دالة لحفظ المفضلة
-        function saveFavorites(favs) {
-            localStorage.setItem( favorites , JSON.stringify(favs));
+        // دالة العودة للصفحة الرئيسية
+        function showMain() {
+            document.getElementById( details-page ).style.display =  none ;
+            document.getElementById( main-page ).style.display =  block ;
+            window.scrollTo(0, 0);
         }
-
-        // دالة تحديث شكل القلوب عند تحميل الصفحة
-        function updateHearts() {
-            const favorites = getFavorites();
-            // تحديث كل قلب في الصفحة
-            for (let i = 1; i <= 20; i++) { // افترضنا 20 سيارة
-                const btn = document.getElementById( fav-btn-  + i);
-                if (btn) {
-                    if (favorites.includes(i)) {
-                        btn.innerHTML =  ❤️ ;
-                    } else {
-                        btn.innerHTML =  🤍 ;
-                    }
-                }
-            }
-        }
-
-        // دالة إضافة/إزالة من المفضلة عند الضغط
-        function toggleFav(id) {
-            let favorites = getFavorites();
-            if (favorites.includes(id)) {
-                favorites = favorites.filter(favId => favId !== id);
-            } else {
-                favorites.push(id);
-            }
-            saveFavorites(favorites);
-            updateHearts(); // تحديث القلوب فوراً
-        }
-
-        // تشغيل التحديث عند فتح الصفحة
-        window.onload = updateHearts;
     </script>
 
 </body>
