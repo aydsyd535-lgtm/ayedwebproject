@@ -18,22 +18,38 @@
         <div class="details-container">
             <a href="index.html" class="btn" style="margin-bottom:20px; display:inline-block;">← العودة للرئيسية</a>
             
-            <!-- بيانات ثابتة للسيارة الأولى (فيراري) -->
-            <img src="https://images.unsplash.com/photo-1592198084033-aade902d1aae?auto=format&fit=crop&w=600&q=80" class="details-img">
-            <h2 style="color: #0b2b4a;">Ferrari F8 Tributo</h2>
-            <p class="price">$280,000</p>
+            <!-- العناصر التي سيتم تعبئتها بالبيانات -->
+            <img id="car-img" src="" class="details-img">
+            <h2 id="car-name" style="color: #0b2b4a;"></h2>
+            <p id="car-price" class="price"></p>
             
             <table>
-                <tr><td>تاريخ الصناعة</td><td>2023</td></tr>
-                <tr><td>نوع الوقود</td><td>بنزين</td></tr>
-                <tr><td>الممشى (كم)</td><td>0 كم</td></tr>
-                <tr><td>ناقل الحركة</td><td>Automatic</td></tr>
-                <tr><td>حالة السيارة</td><td>جديدة</td></tr>
+                <tr><td>تاريخ الصناعة</td><td id="car-year"></td></tr>
+                <tr><td>نوع الوقود</td><td id="car-fuel"></td></tr>
+                <tr><td>الممشى (كم)</td><td id="car-mileage"></td></tr>
+                <tr><td>ناقل الحركة</td><td id="car-transmission"></td></tr>
+                <tr><td>حالة السيارة</td><td id="car-status"></td></tr>
                 <tr><td>حالة البيع</td><td><span style="color: green; font-weight: bold;">متاحة للبيع ✅</span></td></tr>
             </table>
 
             <button onclick="alert( هذه نسخة HTML للعرض فقط. );" class="btn" style="background: #28a745; width: 100%; margin-top: 20px;">شراء هذه السيارة</button>
         </div>
     </div>
+
+    <!-- كود JavaScript لقراءة البيانات من الرابط -->
+    <script>
+        // الحصول على البيانات من الرابط (URL)
+        const params = new URLSearchParams(window.location.search);
+
+        // تعبئة العناصر بالبيانات
+        document.getElementById( car-name ).textContent = params.get( name ) ||  غير محدد ;
+        document.getElementById( car-price ).textContent = params.get( price ) ||  غير محدد ;
+        document.getElementById( car-img ).src = params.get( img ) ||  https://via.placeholder.com/600x400?text=No+Image ;
+        document.getElementById( car-year ).textContent = params.get( year ) ||  غير محدد ;
+        document.getElementById( car-fuel ).textContent = params.get( fuel ) ||  غير محدد ;
+        document.getElementById( car-mileage ).textContent = params.get( mileage ) ||  غير محدد ;
+        document.getElementById( car-transmission ).textContent = params.get( transmission ) ||  غير محدد ;
+        document.getElementById( car-status ).textContent = params.get( status ) ||  غير محدد ;
+    </script>
 </body>
 </html>
